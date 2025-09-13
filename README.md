@@ -25,7 +25,7 @@ No se necesita ninguna instalación. Simplemente sigue estos pasos:
 
 1.  **Clona el repositorio** en tu máquina local:
     ```bash
-    git clone [https://github.com/george1902/amigo-secreto.git](https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git)
+    git clone [https://github.com/george1902/amigo-secreto.git](https://github.com/geroge1902/amigo-secreto.git)
     ```
 2.  **Navega a la carpeta** del proyecto:
     ```bash
