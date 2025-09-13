@@ -25,11 +25,11 @@ No se necesita ninguna instalación. Simplemente sigue estos pasos:
 
 1.  **Clona el repositorio** en tu máquina local:
     ```bash
-    git clone [https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git](https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git)
+    git clone [https://github.com/george1902/amigo-secreto.git](https://github.com/TU_USUARIO/NOMBRE_DEL_REPOSITORIO.git)
     ```
 2.  **Navega a la carpeta** del proyecto:
     ```bash
-    cd NOMBRE_DEL_REPOSITORIO
+    cd amigo-secreto
     ```
 3.  **Abre el archivo `index.html`** en tu navegador web preferido (Google Chrome, Firefox, etc.).
 
