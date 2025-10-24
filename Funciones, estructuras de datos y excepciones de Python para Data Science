@@ -1,0 +1,2968 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/George1902/amigo-secreto/blob/main/Funciones%2C%20estructuras%20de%20datos%20y%20excepciones%20de%20Python%20para%20Data%20Science\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "# <font color=green> **PYTHON PARA DATA SCIENCE**\n",
+        "---"
+      ],
+      "metadata": {
+        "id": "AGc2Cf4cBwd7"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## <font color=green> 1. BIBLIOTECAS\n",
+        "---"
+      ],
+      "metadata": {
+        "id": "fH2br9y9CYZ8"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 1.1 Instalación e importación de bibliotecas\n",
+        "\n",
+        "En el lenguaje Python se utiliza bastante el concepto de bibliotecas como un conjunto de módulos y funciones útiles para el usuario. Estas favorecen la reducción del uso de códigos en el proyecto, manteniendo únicamente los recursos necesarios para la tarea que deseamos realizar."
+      ],
+      "metadata": {
+        "id": "jjEKgfiuFzHz"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Instalando una biblioteca"
+      ],
+      "metadata": {
+        "id": "JjpazCgqDRfZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Para instalar o actualizar una biblioteca en Python, podemos acudir a `pip` que es un gestor de bibliotecas en Python."
+      ],
+      "metadata": {
+        "id": "_qnuIo7oIQYx"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Existe también PYPI que es un repositorio de bibliotecas Python que contiene las bibliotecas más utilizadas por la comunidad junto a su respectiva documentación.\n",
+        "\n",
+        "- PYPI ([https://pypi.org/](https://pypi.org/))"
+      ],
+      "metadata": {
+        "id": "IHTmQnlXInD1"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install matplotlib"
+      ],
+      "metadata": {
+        "id": "Rv5sIo7NM5VS",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "071218cd-600a-4af1-907b-1075128add93"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Requirement already satisfied: matplotlib in /usr/local/lib/python3.12/dist-packages (3.10.0)\n",
+            "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (1.3.3)\n",
+            "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (0.12.1)\n",
+            "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (4.60.1)\n",
+            "Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (1.4.9)\n",
+            "Requirement already satisfied: numpy>=1.23 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (2.0.2)\n",
+            "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (25.0)\n",
+            "Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (11.3.0)\n",
+            "Requirement already satisfied: pyparsing>=2.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (3.2.5)\n",
+            "Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.12/dist-packages (from matplotlib) (2.9.0.post0)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.7->matplotlib) (1.17.0)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "matplotlib.__version__"
+      ],
+      "metadata": {
+        "id": "REYsDRqHM6hN",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "outputId": "992e5e38-22c8-4948-e2ef-94be2e1f5b5e"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'3.10.7'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Importando una biblioteca"
+      ],
+      "metadata": {
+        "id": "A76TbnDbDehe"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# import matplotlib"
+      ],
+      "metadata": {
+        "id": "_xUxLlZFM728"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "!pip install matplotlib==3.10.7"
+      ],
+      "metadata": {
+        "id": "xy035zQzM75b",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 481
+        },
+        "outputId": "8c83df0b-d78d-44f9-f2fd-8c8bc45a3b85"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Collecting matplotlib==3.10.7\n",
+            "  Downloading matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl.metadata (11 kB)\n",
+            "Requirement already satisfied: contourpy>=1.0.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (1.3.3)\n",
+            "Requirement already satisfied: cycler>=0.10 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (0.12.1)\n",
+            "Requirement already satisfied: fonttools>=4.22.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (4.60.1)\n",
+            "Requirement already satisfied: kiwisolver>=1.3.1 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (1.4.9)\n",
+            "Requirement already satisfied: numpy>=1.23 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (2.0.2)\n",
+            "Requirement already satisfied: packaging>=20.0 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (25.0)\n",
+            "Requirement already satisfied: pillow>=8 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (11.3.0)\n",
+            "Requirement already satisfied: pyparsing>=3 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (3.2.5)\n",
+            "Requirement already satisfied: python-dateutil>=2.7 in /usr/local/lib/python3.12/dist-packages (from matplotlib==3.10.7) (2.9.0.post0)\n",
+            "Requirement already satisfied: six>=1.5 in /usr/local/lib/python3.12/dist-packages (from python-dateutil>=2.7->matplotlib==3.10.7) (1.17.0)\n",
+            "Downloading matplotlib-3.10.7-cp312-cp312-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (8.7 MB)\n",
+            "\u001b[2K   \u001b[90m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\u001b[0m \u001b[32m8.7/8.7 MB\u001b[0m \u001b[31m60.4 MB/s\u001b[0m eta \u001b[36m0:00:00\u001b[0m\n",
+            "\u001b[?25hInstalling collected packages: matplotlib\n",
+            "  Attempting uninstall: matplotlib\n",
+            "    Found existing installation: matplotlib 3.10.0\n",
+            "    Uninstalling matplotlib-3.10.0:\n",
+            "      Successfully uninstalled matplotlib-3.10.0\n",
+            "Successfully installed matplotlib-3.10.7\n"
+          ]
+        },
+        {
+          "output_type": "display_data",
+          "data": {
+            "application/vnd.colab-display-data+json": {
+              "pip_warning": {
+                "packages": [
+                  "matplotlib",
+                  "mpl_toolkits"
+                ]
+              },
+              "id": "b797a740493147d0886bce5738f6a1ef"
+            }
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import matplotlib.pyplot as plt"
+      ],
+      "metadata": {
+        "id": "13bKhUmWERv6"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt."
+      ],
+      "metadata": {
+        "id": "Dc721e41Ew3Q"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 1.2 Utilizando módulos/bibliotecas\n",
+        "\n",
+        "- Documentación de Python (https://docs.python.org/es/3/)"
+      ],
+      "metadata": {
+        "id": "oMxkV9-6GXwH"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Ejemplo 1: Vamos a probar la biblioteca Matplotlib para un ejemplo sobre el cálculo de los promedios de notas de los estudiantes de una clase.\n",
+        "\n",
+        "(https://matplotlib.org/stable/tutorials/introductory/pyplot.html)"
+      ],
+      "metadata": {
+        "id": "W1MHaXB2Q7tT"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from matplotlib import pyplot as plt"
+      ],
+      "metadata": {
+        "id": "hme-WlDYM-Od"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "estudiante = ['Maria', 'Pilar', 'Karen']\n",
+        "notas = [8.5, 9.0, 6.0]"
+      ],
+      "metadata": {
+        "id": "mv1h3vJsM-RK"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "plt.bar(x= estudiante,height= notas)\n",
+        "plt.show()"
+      ],
+      "metadata": {
+        "id": "GK77H828M-Zk",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 430
+        },
+        "outputId": "0381e724-b7d0-49d2-ac19-a3f5c084d244"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "display_data",
+          "data": {
+            "text/plain": [
+              "<Figure size 640x480 with 1 Axes>"
+            ],
+            "image/png": "iVBORw0KGgoAAAANSUhEUgAAAhYAAAGdCAYAAABO2DpVAAAAOnRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjEwLjAsIGh0dHBzOi8vbWF0cGxvdGxpYi5vcmcvlHJYcgAAAAlwSFlzAAAPYQAAD2EBqD+naQAAFvlJREFUeJzt3WuMVPX5wPFnWcuAsCAioOiCRrSKqy2Kmmr7V6MptEDQpMZGGgGbpipekVZ4oUKJLlQktNZgxQjEgHgJWqIRo1g0tloBlar1gheEeFuxhgXUBXbn/6Jx0y0CzvIsy8Lnk8yLOXN+c55JjuuXM7M7ZcVisRgAAAnatfYAAMDeQ1gAAGmEBQCQRlgAAGmEBQCQRlgAAGmEBQCQRlgAAGn2290HbGhoiA8//DAqKiqirKxsdx8eAGiGYrEYGzZsiN69e0e7dtu/LrHbw+LDDz+MysrK3X1YACDB2rVr47DDDtvu47s9LCoqKiLiP4N16dJldx8eAGiG2traqKysbPz/+Pbs9rD4+u2PLl26CAsAaGN29jEGH94EANIICwAgjbAAANIICwAgjbAAANIICwAgjbAAANIICwAgjbAAANIICwAgjbAAANIICwAgjbAAANIICwAgzW7/2nTYmx0+/tHWHoFWtnrKkNYeAVqVKxYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQJr9WnuATIePf7S1R6CVrZ4ypLVHANinuWIBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAmpLCor6+Pq6//vo44ogjomPHjnHkkUfG5MmTo1gsttR8AEAbsl8pO0+dOjVmzpwZc+fOjeOOOy6WL18eo0ePjq5du8aVV17ZUjMCAG1ESWHx97//PYYPHx5DhgyJiIjDDz887r333njhhRdaZDgAoG0p6a2Q0047LZYsWRJvvfVWRESsXLkynn322fjJT36y3TV1dXVRW1vb5AYA7J1KumIxfvz4qK2tjWOOOSbKy8ujvr4+brrpphgxYsR211RXV8ekSZN2eVAAYM9X0hWL+++/P+bNmxfz58+PF198MebOnRvTpk2LuXPnbnfNhAkTYv369Y23tWvX7vLQAMCeqaQrFr/5zW9i/Pjx8fOf/zwiIo4//vh4//33o7q6OkaOHPmNawqFQhQKhV2fFADY45V0xeKLL76Idu2aLikvL4+GhobUoQCAtqmkKxbDhg2Lm266Kfr06RPHHXdcvPTSSzF9+vS4+OKLW2o+AKANKSksbrvttrj++uvjsssui5qamujdu3f8+te/jhtuuKGl5gMA2pCSwqKioiJmzJgRM2bMaKFxAIC2zHeFAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABphAUAkEZYAABpSg6LDz74IH7xi19E9+7do2PHjnH88cfH8uXLW2I2AKCN2a+UnT///PM4/fTT46yzzorHHnssevToEatWrYpu3bq11HwAQBtSUlhMnTo1KisrY/bs2Y3bjjjiiPShAIC2qaS3QhYtWhQDBw6M888/P3r27BkDBgyIWbNmtdRsAEAbU1JYvPvuuzFz5sw46qij4vHHH49LL700rrzyypg7d+5219TV1UVtbW2TGwCwdyrprZCGhoYYOHBg3HzzzRERMWDAgHj11VfjjjvuiJEjR37jmurq6pg0adKuTwrATh0+/tHWHoFWtnrKkFY9fklXLA455JDo379/k23HHntsrFmzZrtrJkyYEOvXr2+8rV27tnmTAgB7vJKuWJx++unx5ptvNtn21ltvRd++fbe7plAoRKFQaN50AECbUtIVi2uuuSaef/75uPnmm+Ptt9+O+fPnx5133hljxoxpqfkAgDakpLA4+eST46GHHop77703qqqqYvLkyTFjxowYMWJES80HALQhJb0VEhExdOjQGDp0aEvMAgC0cb4rBABIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDTCAgBIIywAgDS7FBZTpkyJsrKyuPrqq5PGAQDasmaHxbJly+LPf/5znHDCCZnzAABtWLPCYuPGjTFixIiYNWtWdOvWLXsmAKCNalZYjBkzJoYMGRLnnHPOTvetq6uL2traJjcAYO+0X6kLFixYEC+++GIsW7bsW+1fXV0dkyZNKnkwAKDtKemKxdq1a+Oqq66KefPmRYcOHb7VmgkTJsT69esbb2vXrm3WoADAnq+kKxYrVqyImpqaOPHEExu31dfXxzPPPBN/+tOfoq6uLsrLy5usKRQKUSgUcqYFAPZoJYXF2WefHa+88kqTbaNHj45jjjkmrrvuum2iAgDYt5QUFhUVFVFVVdVkW6dOnaJ79+7bbAcA9j3+8iYAkKbk3wr5X0uXLk0YAwDYG7hiAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkERYAQBphAQCkKSksqqur4+STT46Kioro2bNnnHvuufHmm2+21GwAQBtTUlg8/fTTMWbMmHj++efjiSeeiC1btsSPf/zj2LRpU0vNBwC0IfuVsvPixYub3J8zZ0707NkzVqxYEf/3f/+XOhgA0PaUFBb/a/369RERceCBB253n7q6uqirq2u8X1tbuyuHBAD2YM3+8GZDQ0NcffXVcfrpp0dVVdV296uuro6uXbs23iorK5t7SABgD9fssBgzZky8+uqrsWDBgh3uN2HChFi/fn3jbe3atc09JACwh2vWWyGXX355PPLII/HMM8/EYYcdtsN9C4VCFAqFZg0HALQtJYVFsViMK664Ih566KFYunRpHHHEES01FwDQBpUUFmPGjIn58+fHX/7yl6ioqIiPP/44IiK6du0aHTt2bJEBAYC2o6TPWMycOTPWr18fZ555ZhxyyCGNt/vuu6+l5gMA2pCS3woBANge3xUCAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKRpVljcfvvtcfjhh0eHDh3i1FNPjRdeeCF7LgCgDSo5LO67774YO3Zs3HjjjfHiiy/G9773vRg0aFDU1NS0xHwAQBtSclhMnz49fvWrX8Xo0aOjf//+cccdd8T+++8fd999d0vMBwC0IfuVsvPmzZtjxYoVMWHChMZt7dq1i3POOSeee+65b1xTV1cXdXV1jffXr18fERG1tbXNmXeHGuq+SH9O2paWOK9K4RzEOUhra6lz8OvnLRaLO9yvpLBYt25d1NfXR69evZps79WrV7zxxhvfuKa6ujomTZq0zfbKyspSDg3fStcZrT0B+zrnIK2tpc/BDRs2RNeuXbf7eElh0RwTJkyIsWPHNt5vaGiIf//739G9e/coKytr6cPvU2pra6OysjLWrl0bXbp0ae1x2Ac5B2ltzsGWUywWY8OGDdG7d+8d7ldSWBx00EFRXl4en3zySZPtn3zySRx88MHfuKZQKEShUGiy7YADDijlsJSoS5cu/oOiVTkHaW3OwZaxoysVXyvpw5vt27ePk046KZYsWdK4raGhIZYsWRI/+MEPSp8QANirlPxWyNixY2PkyJExcODAOOWUU2LGjBmxadOmGD16dEvMBwC0ISWHxQUXXBCffvpp3HDDDfHxxx/H97///Vi8ePE2H+hk9ysUCnHjjTdu89YT7C7OQVqbc7D1lRV39nsjAADfku8KAQDSCAsAII2wAADSCIt9xJw5c/z9ENKMGjUqzj333Mb7Z555Zlx99dWtNg+w5xAWe4BRo0ZFWVlZXHLJJds8NmbMmCgrK4tRo0bt0jEuuOCCeOutt3bpOdi3fH1elpWVRfv27aNfv37xu9/9LrZu3Rp/+MMfYs6cOa09InuR/43ViIgHH3wwOnToELfeemvrDEWzCIs9RGVlZSxYsCC+/PLLxm1fffVVzJ8/P/r06bNLz71ly5bo2LFj9OzZc1fHZB8zePDg+Oijj2LVqlVx7bXXxsSJE+OWW26Jrl27pl4BKxaLsXXr1rTno+276667YsSIETFz5sy49tprS15fX18fDQ0NLTAZOyMs9hAnnnhiVFZWxsKFCxu3LVy4MPr06RMDBgxo3LZ48eL44Q9/GAcccEB07949hg4dGu+8807j46tXr46ysrK477774owzzogOHTrEvHnztnkr5J133onhw4dHr169onPnznHyySfHk08+uVteK21HoVCIgw8+OPr27RuXXnppnHPOObFo0aJv/Nflf7vnnnti4MCBUVFREQcffHBceOGFUVNT0/j40qVLo6ysLB577LE46aSTolAoxLPPPrsbXhFtwe9///u44oorYsGCBY1/fHH69Olx/PHHR6dOnaKysjIuu+yy2LhxY+Oar3/GLVq0KPr37x+FQiHWrFkTdXV1MW7cuDj00EOjU6dOceqpp8bSpUu3Wff444/HscceG507d24MappHWOxBLr744pg9e3bj/bvvvnubv2i6adOmGDt2bCxfvjyWLFkS7dq1i/POO2+bMh8/fnxcddVV8frrr8egQYO2OdbGjRvjpz/9aSxZsiReeumlGDx4cAwbNizWrFnTMi+OvULHjh1j8+bNO91vy5YtMXny5Fi5cmU8/PDDsXr16m98O2/8+PExZcqUeP311+OEE05ogYlpa6677rqYPHlyPPLII3Heeec1bm/Xrl388Y9/jNdeey3mzp0bTz31VPz2t79tsvaLL76IqVOnxl133RWvvfZa9OzZMy6//PJ47rnnYsGCBfHPf/4zzj///Bg8eHCsWrWqybpp06bFPffcE88880ysWbMmxo0bt9te816nSKsbOXJkcfjw4cWamppioVAorl69urh69epihw4dip9++mlx+PDhxZEjR37j2k8//bQYEcVXXnmlWCwWi++9914xIoozZsxost/s2bOLXbt23eEcxx13XPG2227LeEnsBb4+L4vFYrGhoaH4xBNPFAuFQnHcuHFNHisWi8UzzjijeNVVV233uZYtW1aMiOKGDRuKxWKx+Ne//rUYEcWHH364BV8BbcnIkSOL7du3L0ZEccmSJTvd/4EHHih279698f7s2bOLEVF8+eWXG7e9//77xfLy8uIHH3zQZO3ZZ59dnDBhQpN1b7/9duPjt99+e7FXr167+pL2WS3+tel8ez169IghQ4bEnDlzolgsxpAhQ+Kggw5qss+qVavihhtuiH/84x+xbt26xisVa9asiaqqqsb9Bg4cuMNjbdy4MSZOnBiPPvpofPTRR7F169b48ssvXbGgiUceeSQ6d+4cW7ZsiYaGhrjwwgtj4sSJMWbMmB2uW7FiRUycODFWrlwZn3/+eZPztH///o377ew8Zd9ywgknxLp16+LGG2+MU045JTp37tz42JNPPhnV1dXxxhtvRG1tbWzdujW++uqr+OKLL2L//fePiP98UeZ/X/l65ZVXor6+Po4++ugmx6mrq4vu3bs33t9///3jyCOPbLx/yCGHNHnrjtIIiz3MxRdfHJdffnlERNx+++3bPD5s2LDo27dvzJo1K3r37h0NDQ1RVVW1zeXpTp067fA448aNiyeeeCKmTZsW/fr1i44dO8bPfvazb3WZm33HWWedFTNnzoz27dtH7969Y7/9dv4jY9OmTTFo0KAYNGhQzJs3L3r06BFr1qyJQYMGlXyesm859NBD48EHH4yzzjorBg8eHI899lhUVFTE6tWrY+jQoXHppZfGTTfdFAceeGA8++yz8ctf/jI2b97cGBYdO3aMsrKyxufbuHFjlJeXx4oVK6K8vLzJsf47Wr7zne80eaysrCyKvu2i2YTFHmbw4MGxefPmKCsr2+azEZ999lm8+eabMWvWrPjRj34UEdHsD7z97W9/i1GjRjW+h7lx48ZYvXr1Ls3O3qdTp07Rr1+/kta88cYb8dlnn8WUKVOisrIyIiKWL1/eEuOxF+rbt288/fTTjXGxePHiWLFiRTQ0NMStt94a7dr956OB999//06fa8CAAVFfXx81NTWNPzNpeT68uYcpLy+P119/Pf71r39tU9jdunWL7t27x5133hlvv/12PPXUUzF27NhmHeeoo46KhQsXxssvvxwrV66MCy+80K9mkaJPnz7Rvn37uO222+Ldd9+NRYsWxeTJk1t7LNqQysrKWLp0adTU1MSgQYOiX79+sWXLlsZz6p577ok77rhjp89z9NFHx4gRI+Kiiy6KhQsXxnvvvRcvvPBCVFdXx6OPProbXsm+SVjsgbp06RJdunTZZnu7du1iwYIFsWLFiqiqqoprrrkmbrnllmYdY/r06dGtW7c47bTTYtiwYTFo0KA48cQTd3V0iB49esScOXPigQceiP79+8eUKVNi2rRprT0Wbcxhhx0WS5cujXXr1sUll1wSEydOjKlTp0ZVVVXMmzcvqqurv9XzzJ49Oy666KK49tpr47vf/W6ce+65sWzZsl3++0Bsn69NBwDSuGIBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAGmEBAKQRFgBAmv8HztXWe6WHASQAAAAASUVORK5CYII=\n"
+          },
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### Ejemplo 2: Vamos a seleccionar aleatoriamente a un alumno para presentar su trabajo de ciencia de datos usando la biblioteca `random`.\n",
+        "\n",
+        "(https://docs.python.org/es/3/library/random.html)"
+      ],
+      "metadata": {
+        "id": "5G6u4ZRYRIFZ"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "estudiante_2 = ['Maria', 'Pilar', 'Karen', 'Johana']"
+      ],
+      "metadata": {
+        "id": "Y4o2AvhWNBdM"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "import random"
+      ],
+      "metadata": {
+        "id": "9fXfsVnANBiG"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<font color=green>**Tip:**</font> Podrás notar a medida que avanzas en los ejercicios la importancia de acudir a la documentación para aprender cómo utilizar un método de algún módulo en el lenguaje Python.\n",
+        "\n",
+        "El método `help()`, por ejemplo, retorna una descripción sobre una variable, método o clase.\n",
+        "\n",
+        "https://docs.python.org/es/3/library/functions.html?#help"
+      ],
+      "metadata": {
+        "id": "N-XJrnISGpTN"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from random import choice"
+      ],
+      "metadata": {
+        "id": "a2zJCXNUND9X"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "estudiante = choice(estudiante_2)\n",
+        "estudiante"
+      ],
+      "metadata": {
+        "id": "2Yvr71PIND_r",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "outputId": "cec59804-6d73-4fd6-ede2-eda73fcf6409"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'Pilar'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "help(choice)"
+      ],
+      "metadata": {
+        "id": "UFfZz4CxNGjU",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "4fdc38f5-9fb3-49bf-c2e3-646aaa46db0a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Help on method choice in module random:\n",
+            "\n",
+            "choice(seq) method of random.Random instance\n",
+            "    Choose a random element from a non-empty sequence.\n",
+            "\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## <font color=green> 2. FUNCIONES\n",
+        "---"
+      ],
+      "metadata": {
+        "id": "2hrSPmlcBwWS"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "En Python, las **funciones** son secuencias de instrucciones que ejecutan tareas específicas, permitiendo su reutilización en diferentes partes del código. Estas pueden recibir parámetros de entrada (que también los conocemos como *inputs*) y también retornar resultados."
+      ],
+      "metadata": {
+        "id": "gC4lHsW-DREY"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 2.1 Built-in function (Función Incorporada)\n",
+        "\n",
+        "El interpretador de Python contiene una serie de funciones incorporadas que pueden ser invocadas es cualquier momento. Algunas que vamos a utilizar a lo largo de este curso son: `type()`, `print()`, `list()`, `zip()`, `sum()`, `map()`, etc.\n",
+        "\n",
+        "***Documentación:***\n",
+        "https://docs.python.org/es/3/library/functions.html\n"
+      ],
+      "metadata": {
+        "id": "Qr_h1_UNEzHZ"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 1:**\n",
+        "\n",
+        "La institución educativa para la cual nos encontramos trabajando compartió los datos de las notas de un estudiante para que pudiesemos calcular su promedio con una casilla decimal.\n",
+        "\n",
+        "Los datos recibidos corresponden a un diccionario cuyas llaves indican el trimestre en cuestión y sus valores corresponden a las notas de cada trimestre del estudiante en una respectiva materia."
+      ],
+      "metadata": {
+        "id": "MMOJIW3TyLIB"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas = {'1° Trimestre': 9.5, '2° Trimestre': 8.0, '3° Trimestre': 7.5}"
+      ],
+      "metadata": {
+        "id": "WQ-pCgdaMOlc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "suma = 0\n",
+        "\n",
+        "for s in notas.values():\n",
+        "  suma += s\n",
+        "\n",
+        "print(suma)"
+      ],
+      "metadata": {
+        "id": "GU-HvC-QMOoS",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "c8772ab3-87cd-4754-892c-15319fbcbf8a"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "25.0\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio = suma / len(notas)\n",
+        "promedio"
+      ],
+      "metadata": {
+        "id": "qKEyjY2bMOqj",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "2a9968d2-2da6-48b1-b2c8-d6eaa25f6859"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8.333333333333334"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 18
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "*Redondear el promedio usando round():*\n",
+        "\n",
+        "https://docs.python.org/es/3/library/functions.html#round"
+      ],
+      "metadata": {
+        "id": "JD2z3LW8312E"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio = round(promedio, 1)\n",
+        "promedio"
+      ],
+      "metadata": {
+        "id": "c7Cn5XFfMP5E",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "2d9b8035-1b2c-4811-d818-5d17a3921568"
+      },
+      "execution_count": null,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8.3"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "eVNPFr0pMRWl"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 2.2 Creando funciones"
+      ],
+      "metadata": {
+        "id": "NCUSezOJIdfy"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Tras explorar las funciones incorporadas y aprender cómo utilizar algunas de ellas, es posible que tengas la necesidad de resolver un problema específico y estas no sean suficientes.\n",
+        "\n",
+        "Por este motivo, necesitaremos crear nuestras propias funciones, y aún más, si necesitamos aplicarlas en varias partes de nuestros códigos."
+      ],
+      "metadata": {
+        "id": "QrTAXwghsg6s"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Funciones sin parámetros\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "def <nombre>():\n",
+        "  <instrucciones>\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "zxyXiX462A_X"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def promedio():\n",
+        "  calculo = (10+9+7)/3\n",
+        "  print(calculo)"
+      ],
+      "metadata": {
+        "id": "WgWoULpnMSrT"
+      },
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio()"
+      ],
+      "metadata": {
+        "id": "VKfg0zkDMStp",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "41e829c1-54bb-4b04-a696-e03e7f502525"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "8.666666666666666\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "type(promedio)"
+      ],
+      "metadata": {
+        "id": "04YIHBu-MTNB",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "ba9a89a2-4ae1-41dd-ca65-f4c0815a825e"
+      },
+      "execution_count": 32,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "function"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 32
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Funciones con parámetros\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "def <nombre>(<param_1>, <param_2>, ..., <param_n>):\n",
+        "  <instrucciones>\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "o9AR_DNDFKSD"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def promedio(nota_1, nota_2, nota_3):\n",
+        "  calculo = (nota_1+nota_2+nota_3)/3\n",
+        "  print(calculo)"
+      ],
+      "metadata": {
+        "id": "1QHJXCYsMUx3"
+      },
+      "execution_count": 3,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio(10,9,7)"
+      ],
+      "metadata": {
+        "id": "Pq88ApQEMWK9",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "756d41e4-de79-4119-f845-8e9043f90f93"
+      },
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "8.666666666666666\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio(nota_1=10,nota_2=9,nota_3=7)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "0aBlXokEBrwj",
+        "outputId": "ec854829-41ad-4cef-cbb8-19cbe304800c"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "8.666666666666666\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 2:**\n",
+        "\n",
+        "Recibimos una solicitud para crear una función que calcule el promedio de notas de un estudiante a partir de una lista; que permita alterar la cantidad de notas, y que no implique tener que modificar la función.\n",
+        "\n",
+        "Los datos recibidos, en esta ocasión, corresponden a una lista que contiene las notas de un mismo estudiante en una determinada materia.\n",
+        "\n",
+        "notas = 8.5, 9.0, 6.0, 10.0\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para facilitar nuestra comprensión del proceso, vamos a aplicar las notas de un único estudiante; sin embargo, puedes probar otros casos para practicar."
+      ],
+      "metadata": {
+        "id": "-Umx7n134suz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas = [8.5, 9.0, 6.0, 10.0]"
+      ],
+      "metadata": {
+        "id": "U4MlTO9ucAKc"
+      },
+      "execution_count": 7,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def promedio(lista):\n",
+        "  calculo = sum(lista)/len(lista)\n",
+        "  print(calculo)\n"
+      ],
+      "metadata": {
+        "id": "ZrqyDBNFMYOK"
+      },
+      "execution_count": 8,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio(notas)"
+      ],
+      "metadata": {
+        "id": "wEkixagwMY2E",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "40069fa3-c830-4d8a-facd-f8f8651eab9b"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "8.375\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "media = promedio(notas)"
+      ],
+      "metadata": {
+        "id": "60Gvxd9tMa5d",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "a09078fa-7e12-45ba-d3aa-7930fd6016a0"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "8.375\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "type(media)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "93FKlDgwDPlb",
+        "outputId": "6cf52514-0a64-4b51-a613-d6aae8b0962b"
+      },
+      "execution_count": 12,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "NoneType"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 12
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<font color=red>**Atención!**</font>\n",
+        "Cuando utilizamos funciones, necesitamos prestar atención a una propiedad llamada **Alcance de una función**. Esta propiedad determina dónde una variable puede ser utilizada dentro del código. Por ejemplo, una variable creada dentro de una función existirá únicamente dentro de esta función. O sea, cuando finaliza la ejecución de una función, la variable no estará disponible para el usuario en el resto del código."
+      ],
+      "metadata": {
+        "id": "skMq7d0_xHND"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "IDf1Gz2dDN4v"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "yTOqJSgsMbdJ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 2.3 Funciones que retornan valores\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "def <nombre>(<param_1>, <param_2>, ..., <param_n>):\n",
+        "  <instrucciones>\n",
+        "  return resultado\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "-oDFGKcA52kG"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Retomando la actividad anterior, podemos retornar y guardar el valor del promedio de la siguiente forma:"
+      ],
+      "metadata": {
+        "id": "DxvT_uItbQ-q"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Notas del estudiante\n",
+        "notas = [8.5, 9.0, 6.0, 10.0]"
+      ],
+      "metadata": {
+        "id": "GlWdnX7Ubgl3"
+      },
+      "execution_count": 14,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def promedio(lista):\n",
+        "  resultado = sum(lista)/len(lista)\n",
+        "  return resultado"
+      ],
+      "metadata": {
+        "id": "Qvs0t3SpI8to"
+      },
+      "execution_count": 26,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedio(notas)"
+      ],
+      "metadata": {
+        "id": "p7AwNnTCMgLf",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "75cce1cc-3406-4c02-d414-d8cbbf3eecbe"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8.375"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 27
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "resultado = promedio(notas)"
+      ],
+      "metadata": {
+        "id": "35zC247QMgRP"
+      },
+      "execution_count": 28,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "type(resultado)"
+      ],
+      "metadata": {
+        "id": "TjmB8IWpMgV4",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "c047aa75-218b-4b46-d34a-dd1d0a59bbb1"
+      },
+      "execution_count": 29,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "float"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 29
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "resultado"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "zagDsiK8JjDX",
+        "outputId": "c24339fc-2ffb-47d9-e4c7-6db843a983af"
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "8.375"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 3:**\n",
+        "\n",
+        "Recibimos una nueva solicitud. Debemos calcular el promedio de un estudiante a partir de una lista y retornar tanto el promedio como la situación del estudiante (\"Aprobado(a)\" si la nota es mayor o igual a 7.0, en caso contrario, será \"Reprobado(a)\").\n",
+        "\n",
+        "Además de ello, necesitamos exhibir un pequeño texto para indicar el promedio del estudiante y cuál es su situación. Los datos recibidos corresponden a una lista que contiene apenas las notas de un estudiante en una materia determinada.\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para facilitar nuestra comprensión del proceso, vamos a aplicar las notas de un único estudiante; sin embargo, puedes probar otros casos para practicar."
+      ],
+      "metadata": {
+        "id": "_awyOKOH8OOi"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Notas del estudiante\n",
+        "notas = [8.5, 9.0, 6.0, 10.0]"
+      ],
+      "metadata": {
+        "id": "3saGo2kDf0BY"
+      },
+      "execution_count": 31,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def boletin(lista):\n",
+        "  resultado = sum(lista)/len(lista)\n",
+        "  if resultado >= 7:\n",
+        "    situacion = 'Aprobado'\n",
+        "  else:\n",
+        "    situacion = 'Reprobado'\n",
+        "  return (resultado,situacion)"
+      ],
+      "metadata": {
+        "id": "unNLrdFjMjbv"
+      },
+      "execution_count": 35,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "boletin(notas)"
+      ],
+      "metadata": {
+        "id": "Rmvg4hNeMjeD",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "d02c7ca2-de11-450f-c53a-30d5d75328cc"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(8.375, 'Aprobado')"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "resultado, situacion = boletin(notas)"
+      ],
+      "metadata": {
+        "id": "jCYuFpmeMji6"
+      },
+      "execution_count": 37,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(f'El/La estudiante obtuvo un puntaje de: {resultado} y su situación es: {situacion}.')"
+      ],
+      "metadata": {
+        "id": "hSht0Z2cMjlT",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "861fcea3-9774-4cd2-f42d-2e68b27ea0d8"
+      },
+      "execution_count": 38,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "El/La estudiante obtuvo un puntaje de: 8.375 y su situación es: Aprobado.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def boletin(lista):\n",
+        "  resultado = sum(lista)/len(lista)\n",
+        "  if resultado >= 7:\n",
+        "    situacion = 'Aprobado'\n",
+        "  else:\n",
+        "    situacion = 'Reprobado'\n",
+        "  return (f'El/La estudiante obtuvo un puntaje de: {resultado} y su situación es: {situacion}.')"
+      ],
+      "metadata": {
+        "id": "tLdjCulMMjnD"
+      },
+      "execution_count": 39,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_2 = [7.5, 9.0, 3.0, 10.0]"
+      ],
+      "metadata": {
+        "id": "EpyCFzJtMnWy"
+      },
+      "execution_count": 40,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "boletin(notas_2)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 35
+        },
+        "id": "5cuY2-7QM7_0",
+        "outputId": "b3a86a33-e894-4759-d634-e305c06d217a"
+      },
+      "execution_count": 41,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "'El/La estudiante obtuvo un puntaje de: 7.375 y su situación es: Aprobado.'"
+            ],
+            "application/vnd.google.colaboratory.intrinsic+json": {
+              "type": "string"
+            }
+          },
+          "metadata": {},
+          "execution_count": 41
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 2.4 Funciones lambda\n",
+        "\n",
+        "También se conocen como funciones anónimas, son funciones que no necesitan ser definidas, o sea, no poseen un nombre, y describen en una única fila los comandos que deseamos aplicar.\n",
+        "\n",
+        "https://docs.python.org/es/3/reference/expressions.html?#lambda\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "lambda <variable>: <expresion>\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "hwYYRpkZMft5"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nota_ = float(input('Digita tu nota: '))\n",
+        "\n",
+        "def cualitativa(nota):\n",
+        "  return nota + 0.5\n",
+        "\n",
+        "cualitativa(nota_)\n"
+      ],
+      "metadata": {
+        "id": "wcNxDJoPMmTJ",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "3e41b4f7-8d18-45ca-bcec-4f584b3466c1"
+      },
+      "execution_count": 45,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Digita tu nota: 6\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "6.5"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 45
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nota_ = float(input('Digita tu nota: '))\n",
+        "\n",
+        "cualitativa = lambda nota: nota + 0.5\n",
+        "\n",
+        "cualitativa(nota_)"
+      ],
+      "metadata": {
+        "id": "S-baAoaQMmVy",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f9a67aad-90b2-46d8-9ee4-e5282d377a9c"
+      },
+      "execution_count": 46,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Digita tu nota: 6\n"
+          ]
+        },
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "6.5"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 46
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 4:**\n",
+        "\n",
+        "En esta nueva solicitud, necesitamos crear una calculadora simple para obtener el promedio ponderado de notas de una materia determinada. Vamos a pedir que el usuario introduzca 3 notas (N1, N2, N3) del estudiante y devuelva el promedio ponderado de este estudiante. Los pesos de las notas son de, respectivamente 3, 2 y 5.\n",
+        "\n",
+        "Necesitamos exhibir un pequeño texto para poder indicar el promedio del estudiante.\n",
+        "**¿Vamos a resolver este desafío?**\n"
+      ],
+      "metadata": {
+        "id": "AuRWyNXYgD_b"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Resolviendo nuestro problema:**"
+      ],
+      "metadata": {
+        "id": "vdKk3DRBmtUE"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "n1 = float(input('Digita la primera nota: '))\n",
+        "n2 = float(input('Digita la segunda nota: '))\n",
+        "n3 = float(input('Digita la tercera nota: '))\n",
+        "\n",
+        "ponderado = lambda n1, n2, n3: (n1*3 + n2*2 + n3*5)/10\n",
+        "\n",
+        "nota_final = ponderado(n1,n2,n3)"
+      ],
+      "metadata": {
+        "id": "6YxEn9aiMnYJ",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f3a984f3-f200-40a9-eb25-c88e858d34b9"
+      },
+      "execution_count": 48,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "Digita la primera nota: 7\n",
+            "Digita la segunda nota: 8\n",
+            "Digita la tercera nota: 9.6\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "print(f'El promedio ponderado del estudiante es: {nota_final}')"
+      ],
+      "metadata": {
+        "id": "Ptn9gQaPMnaz",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "6bf24cf5-901c-44da-d614-2f228baa4f4c"
+      },
+      "execution_count": 49,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "El promedio ponderado del estudiante es: 8.5\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 5:**\n",
+        "\n",
+        "Ahora, debemos crear una pequeña función que permita dar una nota cualitativa (puntaje extra) a las notas del trimestre de los estudiantes del grupo que ganó el concurso de programación realizado en la institución. Cada estudiante recibirá el cualitativo de 0.5 añadido al promedio.\n",
+        "\n",
+        "Los datos recibidos corresponden a una lista que contiene las notas de algunos estudiantes y una variable con el cualitativo recibido.\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para facilitar nuestra comprensión del proceso, vamos a aplicar las notas de 5 estudiantes; sin embargo, puedes probar otros casos para practicar."
+      ],
+      "metadata": {
+        "id": "1qk0gLdfFcbf"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Notas del estudiante\n",
+        "notas = [6.0, 7.0, 9.0, 5.5, 8.0]\n",
+        "cualitativo = 0.5"
+      ],
+      "metadata": {
+        "id": "RdoaWhuVI_OB"
+      },
+      "execution_count": 50,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_actualizadas = lambda x: x + 0.5"
+      ],
+      "metadata": {
+        "id": "PzDfbv-kMq2t"
+      },
+      "execution_count": 51,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_actualizadas(notas)"
+      ],
+      "metadata": {
+        "id": "3YDQ39wFMq5u",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 193
+        },
+        "outputId": "744410b9-08f6-43b1-c53c-4e1313329b6d"
+      },
+      "execution_count": 53,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "can only concatenate list (not \"float\") to list",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-3077141845.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mnotas_actualizadas\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnotas\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;32m/tmp/ipython-input-4048523584.py\u001b[0m in \u001b[0;36m<lambda>\u001b[0;34m(x)\u001b[0m\n\u001b[0;32m----> 1\u001b[0;31m \u001b[0mnotas_actualizadas\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;32mlambda\u001b[0m \u001b[0mx\u001b[0m\u001b[0;34m:\u001b[0m \u001b[0mx\u001b[0m \u001b[0;34m+\u001b[0m \u001b[0;36m0.5\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m: can only concatenate list (not \"float\") to list"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Mapeando valores\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "map(<lambda function>, <iterador>)\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "SOK4BC4mmKbG"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_actualizadas = map(lambda x: x + 0.5, notas)"
+      ],
+      "metadata": {
+        "id": "ZbfpvfWJMsjv"
+      },
+      "execution_count": 54,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_actualizadas"
+      ],
+      "metadata": {
+        "id": "TA-zGLJfMseA",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e07a6e6d-cbbe-442a-c79a-94b8342380a9"
+      },
+      "execution_count": 55,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "<map at 0x78d75f3d5ba0>"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 55
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_actualizadas = list(notas_actualizadas)\n",
+        "print(notas_actualizadas)\n",
+        "print(notas)"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "q8zR1QGwSIlO",
+        "outputId": "d7d2daaa-4f1b-4839-c31a-cd96a7213d18"
+      },
+      "execution_count": 56,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "[6.5, 7.5, 9.5, 6.0, 8.5]\n",
+            "[6.0, 7.0, 9.0, 5.5, 8.0]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "PrAppvR6MuKm"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## <font color=green> 3. ESTRUCTURAS DE DATOS COMPUESTAS\n",
+        "---"
+      ],
+      "metadata": {
+        "id": "DoB6wf2JCYf7"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 3.1 Estructuras anidadas\n",
+        "\n",
+        "Previamente, aprendimos a manipular las listas, tuplas y diccionarios para trabajar con una secuencia o colección de valores sean numéricos, categóricos, etc. En esta aula, vamos a profundizar en otra situación común para la persona científica de datos que es trabajar con estos tipos de estructuras anidadas, o sea, cuando, por ejemplo, tenemos listas dentro de una lista."
+      ],
+      "metadata": {
+        "id": "3or6MbnZDW_b"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### **Lista de listas**\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "[[a1, a2,...,an], [b1, b2,...,bn], ..., [n1, n2,...,nn]]\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "fddus1G9HqB3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 6:**\n",
+        "\n",
+        "Recibimos la demanda de transformar una lista con el nombre y las notas de tres trimestres de algunos estudiantes en una lista simple, con los nombres separados de las notas, y una lista de listas con las tres notas de cada estudiante separadas entre sí. Los datos recibidos corresponden a una lista con los nombres y las respectivas notas de cada estudiante.\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para facilitar nuestra comprensión del proceso, vamos a trabajar con un grupo de 5 estudiantes; sin embargo, puedes probar otros casos para practicar.\n"
+      ],
+      "metadata": {
+        "id": "32K5LA11tFpz"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_grupo = ['Juan', 8.0, 9.0, 10.0, 'Maria', 9.0, 7.0, 6.0, 'José', 3.4, 7.0, 7.0, 'Claudia', 5.5, 6.6, 8.0, 'Ana', 6.0, 10.0, 9.5]"
+      ],
+      "metadata": {
+        "id": "jlEP-c2YthpB"
+      },
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombre = []\n",
+        "notas = []\n",
+        "\n",
+        "for i in range(len(notas_grupo)):\n",
+        "  if i % 4 == 0:\n",
+        "    nombre.append(notas_grupo[i])\n",
+        "  else:\n",
+        "    notas.append(notas_grupo[i])"
+      ],
+      "metadata": {
+        "id": "azR_cX-ILghB"
+      },
+      "execution_count": 2,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombre"
+      ],
+      "metadata": {
+        "id": "GhfsJvs9LgjY",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5dbb4d94-fafc-416a-f1dd-a2824c4a1817"
+      },
+      "execution_count": 3,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['Juan', 'Maria', 'José', 'Claudia', 'Ana']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 3
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas"
+      ],
+      "metadata": {
+        "id": "tB8FA20gLiog",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "086a0d73-fed9-4221-a17a-97f5e2950cfe"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[8.0, 9.0, 10.0, 9.0, 7.0, 6.0, 3.4, 7.0, 7.0, 5.5, 6.6, 8.0, 6.0, 10.0, 9.5]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_separadas = []\n",
+        "\n",
+        "for i in range(0,len(notas),3):\n",
+        "  notas_separadas.append(notas[i:i+3])\n"
+      ],
+      "metadata": {
+        "id": "SCi8Jl82Liqo"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas_separadas"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "EhqxWbnsykqp",
+        "outputId": "8df292d9-d35a-4f76-ff7c-0f333c6a4a33"
+      },
+      "execution_count": 6,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[[8.0, 9.0, 10.0],\n",
+              " [9.0, 7.0, 6.0],\n",
+              " [3.4, 7.0, 7.0],\n",
+              " [5.5, 6.6, 8.0],\n",
+              " [6.0, 10.0, 9.5]]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 6
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### **Lista de tuplas**\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "[(a1, a2,...,an), (b1, b2,...,bn), ..., (n1, n2,...,nn)]\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "SW0sVg68sK_z"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "9OaEjplbyjgs"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 7:**\n",
+        "\n",
+        "Necesitamos generar una lista de tuplas con los nombres de los estudiantes y el código ID de cada uno de ellos para la plataforma de análisis de datos. La creación del código consiste en concatenar la primera letra del nombre del estudiante con un número aleatorio de 0 a 999. Los datos recibidos corresponden a una lista con los nombres de cada estudiante.\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para facilitar nuestra comprensión del proceso, vamos a trabajar con un grupo de 5 estudiantes; sin embargo, puedes probar otros casos para practicar.\n"
+      ],
+      "metadata": {
+        "id": "OId6jAZz5x2m"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombre"
+      ],
+      "metadata": {
+        "id": "YA1zJ0G6LkTy",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5ea2c5f1-c752-460d-83c6-82945fb7c259"
+      },
+      "execution_count": 9,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['Juan', 'Maria', 'José', 'Claudia', 'Ana']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 9
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "from random import randint\n",
+        "\n",
+        "def generar_numero():\n",
+        "  return randint(0,999)"
+      ],
+      "metadata": {
+        "id": "yBzPwhGiLkWa"
+      },
+      "execution_count": 11,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "generar_numero()"
+      ],
+      "metadata": {
+        "id": "9qgGAjSyLndK",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "e855568d-1b6e-414d-93dd-538512d77fab"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "948"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "codigo_estudiantes = []\n",
+        "\n",
+        "for i in range(len(nombre)):\n",
+        "  codigo_estudiantes.append((nombre[i],nombre[i][0]+str(generar_numero())))"
+      ],
+      "metadata": {
+        "id": "jVRxtOyeLngM"
+      },
+      "execution_count": 16,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "codigo_estudiantes"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "HOPv0-t61DRO",
+        "outputId": "5c3d9515-4a1d-42c1-8c6f-234b1403d100"
+      },
+      "execution_count": 17,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[('Juan', 'J209'),\n",
+              " ('Maria', 'M678'),\n",
+              " ('José', 'J295'),\n",
+              " ('Claudia', 'C916'),\n",
+              " ('Ana', 'A172')]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 17
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 3.2 List comprehension\n",
+        "\n",
+        "Es una forma simple y concisa de crear una lista. Podemos aplicar condicionales y lazos para crear diversos tipos de listas a partir de patrones que deseamos para nuestra estructura de datos.\n",
+        "\n",
+        "https://docs.python.org/es/3/tutorial/datastructures.html?#list-comprehensions\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "[expresion for item in lista]\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "srHAov19QCdb"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 8:**\n",
+        "\n",
+        "Recibimos la demanda de crear una lista con el promedio de los estudiantes de la lista de listas que creamos en la Situación 6, redondeando el promedio a una casilla decimal. Recordando que cada lista de la lista de listas contiene las tres notas de cada estudiante.\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "**Tip:** Utiliza el formato:\n",
+        "```python\n",
+        "[expresion for item in lista]\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "l4HW0gDqecgM"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def promedio(lista: list=[0]) -> float:\n",
+        "  ''' Función para calcular el promedio de notas en una lista\n",
+        "\n",
+        "  lista: list, default [0]\n",
+        "    Lista con las notas para calcular el promedio\n",
+        "  return = calculo: float\n",
+        "    Promedio calculado\n",
+        "  '''\n",
+        "\n",
+        "  calculo = sum(lista) / len(lista)\n",
+        "\n",
+        "  return calculo"
+      ],
+      "metadata": {
+        "id": "J_atQRQdlpNe"
+      },
+      "execution_count": 21,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas = [[8.0, 9.0, 10.0],[9.0, 7.0, 6.0],[3.4, 7.0, 7.0],[5.5, 6.6, 8.0],[6.0, 10.0, 9.5]]"
+      ],
+      "metadata": {
+        "id": "aZ_pn5oQ8fza"
+      },
+      "execution_count": 18,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "promedios = [round(promedio(nota), 1) for nota in notas]\n",
+        "promedios"
+      ],
+      "metadata": {
+        "id": "h7LeBrgnLAG6",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "ae3dbd13-aaab-4ba3-87bb-4a24cd5d2b05"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[9.0, 7.3, 5.8, 6.7, 8.5]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "3j8_H7e8LAJZ"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 9:**\n",
+        "\n",
+        "Ahora, necesitamos utilizar los promedios calculados en el ejemplo anterior, y agruparlos con el nombre de los respectivos estudiantes. Esto será necesario para generar una lista que seleccione a aquellos estudiantes que posean un promedio final mayor o igual a 8 para concursar por una beca de estudios para el próximo año lectivo. Los datos recibidos corresponden a una lista de tuplas con los nombres y los códigos de los estudiantes junto a la lista de promedios calculados previamente.\n",
+        "\n",
+        "**Nota: El número de código será diferente cada vez que se ejecute la celda que los genera, por lo tanto, es completamente normal que estos códigos sean diferentes.**\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para facilitar nuestra comprensión del proceso vamos a trabajar con un grupo de 5 estudiantes.\n",
+        "\n",
+        "**Tip:** Utiliza el formato:\n",
+        "\n",
+        "```python\n",
+        "[expresion for item in lista if condicion]\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "ApLjXlAdhJKd"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombres = [('Juan', 'J209'),('Maria', 'M678'),('José', 'J295'),('Claudia', 'C916'),('Ana', 'A172')]\n",
+        "promedios = [9.0, 7.3, 5.8, 6.7, 8.5]"
+      ],
+      "metadata": {
+        "id": "QK-ubmmrLC7I"
+      },
+      "execution_count": 25,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombres = [nombre[0] for nombre in nombres]\n",
+        "nombres"
+      ],
+      "metadata": {
+        "id": "df1Q8GGELC9b",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "f084ba5c-ffaa-4d05-de8c-c50de62f6885"
+      },
+      "execution_count": 26,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['Juan', 'Maria', 'José', 'Claudia', 'Ana']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 26
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<font color=green>**Tip:**</font> Para lograr parear los promedios y\n",
+        "los nombres fácilmente, podemos acudir a otra  built-in function: `zip()`\n",
+        "\n",
+        "Esta recibe uno o más iterables (lista, string, dict, etc.) y los retorna como un iterador de tuplas donde cada elemento de los iterables es pareado."
+      ],
+      "metadata": {
+        "id": "U6KAABs7Dfpe"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "estudiantes = list(zip(nombres, promedios))\n",
+        "estudiantes"
+      ],
+      "metadata": {
+        "id": "841v92WvLEol",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "5c344c4e-de14-4853-e229-3b89c25d84a7"
+      },
+      "execution_count": 28,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[('Juan', 9.0), ('Maria', 7.3), ('José', 5.8), ('Claudia', 6.7), ('Ana', 8.5)]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 28
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "candidatos = [estudiante[0] for estudiante in estudiantes if estudiante[1] >= 8]\n",
+        "candidatos"
+      ],
+      "metadata": {
+        "id": "U8b4G_2oLErp",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "19bedc3c-fef6-4992-937a-0a75bb05aebb"
+      },
+      "execution_count": 30,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['Juan', 'Ana']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 30
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 10:**\n",
+        "\n",
+        "Recibimos dos demandas sobre este proyecto con las notas de los estudiantes:\n",
+        "- Crear una lista de la situación de los estudiantes considerando los siguientes casos: Si su promedio es mayor o igual a 7, recibirá el valor \"Aprobado\" y en caso contrario recibirá el valor \"Reprobado\".\n",
+        "- Generar una lista de listas con:\n",
+        "  - Lista de tuplas con el nombre de los estudiantes y sus códigos\n",
+        "  - Lista de listas con las notas de cada estudiante\n",
+        "  - Lista con los promedios de cada estudiante\n",
+        "  - Lista de la situación de los estudiantes de acuerdo con los promedios\n",
+        "\n",
+        "Los datos que utilizaremos son los mismos que generamos en las situaciones anteriores (`nombres`, `notas`, `promedios`).\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para avanzar en el proceso, vamos a dejar escritas las estructuras de datos que ya produjimos.\n",
+        "\n",
+        "**Tip:** Para la lista de las situaciones utiliza el formato:\n",
+        "```python\n",
+        "[resultado_if if condicion else resultado_else for item in lista]\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "9yzRDIB0fkeF"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombres = [('Juan', 'J209'),('Maria', 'M678'),('José', 'J295'),('Claudia', 'C916'),('Ana', 'A172')]\n",
+        "notas = [[8.0, 9.0, 10.0],[9.0, 7.0, 6.0],[3.4, 7.0, 7.0],[5.5, 6.6, 8.0],[6.0, 10.0, 9.5]]\n",
+        "promedios = [9.0, 7.3, 5.8, 6.7, 8.5]"
+      ],
+      "metadata": {
+        "id": "YGQIaCzkLGqd"
+      },
+      "execution_count": 35,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "situacion = ['Aprobado' if promedio >= 7 else 'Reprobado' for promedio in promedios]\n",
+        "situacion"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "8IpQWy40CwNE",
+        "outputId": "b6acc90f-894c-4bd6-de0b-75e1247727e4"
+      },
+      "execution_count": 36,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "['Aprobado', 'Aprobado', 'Reprobado', 'Reprobado', 'Aprobado']"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 36
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "OAAQHwE1LGs2"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "**Tip:** Para generar la lista de listas del enunciado podemos utilizar el siguiente formato:\n",
+        "```python\n",
+        "[expresion for item in lista de listas]\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "0XsAi49IF9Ta"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "registros = [x for x in [nombres,notas,promedio,situacion]]\n",
+        "registros"
+      ],
+      "metadata": {
+        "id": "1Dj6R1vTLIbI",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "1635a5ce-5921-48e6-88e1-188bc6cdb46b"
+      },
+      "execution_count": 40,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[[('Juan', 'J209'),\n",
+              "  ('Maria', 'M678'),\n",
+              "  ('José', 'J295'),\n",
+              "  ('Claudia', 'C916'),\n",
+              "  ('Ana', 'A172')],\n",
+              " [[8.0, 9.0, 10.0],\n",
+              "  [9.0, 7.0, 6.0],\n",
+              "  [3.4, 7.0, 7.0],\n",
+              "  [5.5, 6.6, 8.0],\n",
+              "  [6.0, 10.0, 9.5]],\n",
+              " <function __main__.promedio(lista: list = [0]) -> float>,\n",
+              " ['Aprobado', 'Aprobado', 'Reprobado', 'Reprobado', 'Aprobado']]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 40
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "cTLEQQ2eLIqc"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "<font color=green>**Tip:**</font> Podemos acudir a la forma más simple de generación de lista de listas con el uso directo de los corchetes sin la necesidad de utilizar las expresiones y el lazo `for` que se emplea en la comprensión de listas."
+      ],
+      "metadata": {
+        "id": "4hkHEZGbGH7X"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lista_completa = [nombres,notas,promedios,situacion]\n",
+        "lista_completa"
+      ],
+      "metadata": {
+        "id": "1tEtWzSoLKKg",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "b5c582d3-ad19-47db-8819-2eb3c704ed14"
+      },
+      "execution_count": 42,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "[[('Juan', 'J209'),\n",
+              "  ('Maria', 'M678'),\n",
+              "  ('José', 'J295'),\n",
+              "  ('Claudia', 'C916'),\n",
+              "  ('Ana', 'A172')],\n",
+              " [[8.0, 9.0, 10.0],\n",
+              "  [9.0, 7.0, 6.0],\n",
+              "  [3.4, 7.0, 7.0],\n",
+              "  [5.5, 6.6, 8.0],\n",
+              "  [6.0, 10.0, 9.5]],\n",
+              " [9.0, 7.3, 5.8, 6.7, 8.5],\n",
+              " ['Aprobado', 'Aprobado', 'Reprobado', 'Reprobado', 'Aprobado']]"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 42
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "lRk02Bm5LMB3"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 3.3 Dict comprehension\n",
+        "\n",
+        "Es una forma simple y concisa de crear o modificar un diccionario. Podemos aplicar condicionales y lazos para crear diversos tipos de diccionarios a partir de los patrones que buscamos para nuestra estructura de datos y con el soporte de iterables como listas o sets.\n",
+        "\n",
+        "https://peps.python.org/pep-0274/\n",
+        "\n",
+        "#### Formato estándar:\n",
+        "\n",
+        "```python\n",
+        "{llave: valor for item in lista}\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "NmohhDl-QRpx"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 11:**\n",
+        "\n",
+        "Ahora, nuestra demanda consiste en generar un diccionario a partir de la lista de listas que creamos en la Situación 10 para entregar a la persona responsable por construir las tablas para el análisis de los datos.\n",
+        "- Las llaves de nuestro diccionario serán las columnas identificando el tipo de dato\n",
+        "- Los valores serán las listas con los datos correspondientes a aquella llave.\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**\n",
+        "\n",
+        "Para facilitar nuestra comprensión del proceso vamos a trabajar con un grupo de 5 estudiantes.\n",
+        "\n",
+        "**Tip:** Utiliza el formato\n",
+        "\n",
+        "```python\n",
+        "{llave: valor for item in lista}\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "kGt8hQXOKeIt"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "lista_completa = [[('Juan', 'J209'),('Maria', 'M678'),('José', 'J295'),('Claudia', 'C916'),('Ana', 'A172')],[[8.0, 9.0, 10.0],[9.0, 7.0, 6.0],\n",
+        "                  [3.4, 7.0, 7.0],[5.5, 6.6, 8.0],[6.0, 10.0, 9.5]],[9.0, 7.3, 5.8, 6.7, 8.5],\n",
+        "                  ['Aprobado', 'Aprobado', 'Reprobado', 'Reprobado', 'Aprobado']]\n"
+      ],
+      "metadata": {
+        "id": "GuTwYw8NLNST"
+      },
+      "execution_count": 1,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "columnas = ['notas','promedio final','situacion']\n",
+        "\n",
+        "registro = {columnas[i]: lista_completa[i+1] for i in range(len(columnas))}\n",
+        "registro"
+      ],
+      "metadata": {
+        "id": "Ka1JPCuvLP4x",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "1b9e6e7d-665b-49d2-8cb5-e491923a9e5c"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'notas': [[8.0, 9.0, 10.0],\n",
+              "  [9.0, 7.0, 6.0],\n",
+              "  [3.4, 7.0, 7.0],\n",
+              "  [5.5, 6.6, 8.0],\n",
+              "  [6.0, 10.0, 9.5]],\n",
+              " 'promedio final': [9.0, 7.3, 5.8, 6.7, 8.5],\n",
+              " 'situacion': ['Aprobado', 'Aprobado', 'Reprobado', 'Reprobado', 'Aprobado']}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 2
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "registro['Estudiante'] = [lista_completa[0][i][0] for i in range(len(lista_completa[0]))]\n",
+        "registro"
+      ],
+      "metadata": {
+        "id": "4GhlzfLbLP8L",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "b1f504b6-1aa7-494b-ab32-f1ee6c428c2f"
+      },
+      "execution_count": 4,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "{'notas': [[8.0, 9.0, 10.0],\n",
+              "  [9.0, 7.0, 6.0],\n",
+              "  [3.4, 7.0, 7.0],\n",
+              "  [5.5, 6.6, 8.0],\n",
+              "  [6.0, 10.0, 9.5]],\n",
+              " 'promedio final': [9.0, 7.3, 5.8, 6.7, 8.5],\n",
+              " 'situacion': ['Aprobado', 'Aprobado', 'Reprobado', 'Reprobado', 'Aprobado'],\n",
+              " 'Estudiante': ['Juan', 'Maria', 'José', 'Claudia', 'Ana']}"
+            ]
+          },
+          "metadata": {},
+          "execution_count": 4
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## <font color=green> 4. LIDIANDO CON EXCEPCIONES\n",
+        "---"
+      ],
+      "metadata": {
+        "id": "RxKC5WVoCYp3"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "Hemos podido evidenciar hasta aquí la existencia de algunos errores y excepciones en la ejecución de algún comando. Como científico/a de datos o programador, necesitarás estar atento a estas situaciones para evitar bugs o problemas en tus códigos y análisis que puedan afectar la experiencia tanto del usuario como la eficiencia de su análisis.\n",
+        "\n",
+        "Existen básicamente dos formas distintas de errores: Los **errores de sintáxis** y las **excepciones**.\n",
+        "\n",
+        "Las excepciones son errores detectados durante la ejecución e interrumpen el flujo del programa cerrándolo en caso de que no sean tratadas.  \n",
+        "\n",
+        "Vamos a aprender a identificar y tratar algunas de las excepciones aquí, pero es siempre importante consultar la documentación para investigar y verificar cuáles se ajustan a sus proyectos.\n",
+        "\n",
+        "**Documentación sobre errores y excepciones:** https://docs.python.org/es/3/tutorial/errors.html"
+      ],
+      "metadata": {
+        "id": "MzOZ_0M3CU1x"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 4.1 Tratando las Excepciones\n",
+        "\n",
+        "El tratamiento de las excepciones contribuye a establecer un flujo alternativo para la ejecución del código evitando la interrupción de los procesos inesperadamente.\n",
+        "\n",
+        "Existe una serie de excepciones, y a partir del comportamiento que queremos, y de los errores que queremos tratar, es posible construir un camino para el usuario, o también, proveer más detalles sobre aquella excepción.\n",
+        "\n",
+        "- Jerarquía de las excepciones (https://docs.python.org/es/3/library/exceptions.html#exception-hierarchy)"
+      ],
+      "metadata": {
+        "id": "x3E66krBST7K"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Try ... Except\n",
+        "\n",
+        "```python\n",
+        "try:\n",
+        "  # código que será ejecutado. En caso de que surja una excepción, para inmediatamente\n",
+        "except <nombre_de_la_excepcion as e>:\n",
+        "  # Si surje una excepción en el try, ejecuta este código, si no, salta esta etapa\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "h9lj8Wfk__cl"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 12:**\n",
+        "\n",
+        "Creaste un código que lee un diccionario con las notas de los estudiantes y querías retornar la lista de notas de un estudiante.\n",
+        "\n",
+        "En caso que el/la estudiante no esté matriculado(a) en el grupo debemos tratar la excepción para presentar el mensaje \"Estudiante no matriculado(a) en el grupo\".\n",
+        "\n",
+        "Vamos a trabajar en este ejemplo con la excepción **Key Error** que interrumpirá el processo de este trecho de código.\n",
+        "\n",
+        "**¿Vamos a probar este primer tratamiento?**\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "miwzhPNdD8Ty"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas = {'Juan': [8.0, 9.0, 10.0], 'Maria': [9.0, 7.0, 6.0], 'José': [3.4, 7.0, 8.0], 'Claudia': [5.5, 6.6, 8.0],\n",
+        "         'Ana': [6.0, 10.0, 9.5], 'Jorge': [5.5, 7.5, 9.0], 'Julia': [6.0, 8.0, 7.0], 'Pedro': [3.0, 4.0, 6.0]}"
+      ],
+      "metadata": {
+        "id": "UvVbXY0XVm-f"
+      },
+      "execution_count": 5,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "nombre = input('¿Cuál es el nombre del estudiante?: ')\n",
+        "resultado = notas[nombre]\n",
+        "resultado"
+      ],
+      "metadata": {
+        "id": "rFBq02dbJtkF",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 193
+        },
+        "outputId": "0c77b4b3-c34a-4f5f-8ea6-bef947c36d7c"
+      },
+      "execution_count": 7,
+      "outputs": [
+        {
+          "name": "stdout",
+          "output_type": "stream",
+          "text": [
+            "¿Cuál es el nombre del estudiante?: Lula\n"
+          ]
+        },
+        {
+          "output_type": "error",
+          "ename": "KeyError",
+          "evalue": "'Lula'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mKeyError\u001b[0m                                  Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-79736447.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mnombre\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0minput\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m'¿Cuál es el nombre del estudiante?: '\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mresultado\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mnotas\u001b[0m\u001b[0;34m[\u001b[0m\u001b[0mnombre\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0mresultado\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mKeyError\u001b[0m: 'Lula'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  nombre = input('¿Cuál es el nombre del estudiante?: ')\n",
+        "  resultado = notas[nombre]\n",
+        "except Exception as e:\n",
+        "  print(type(e), e)"
+      ],
+      "metadata": {
+        "id": "IZwxTL1EJvRl",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "bbe41dc6-bde7-4103-f720-82317f588076"
+      },
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "¿Cuál es el nombre del estudiante?: Lula\n",
+            "<class 'KeyError'> 'Lula'\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  nombre = input('¿Cuál es el nombre del estudiante?: ')\n",
+        "  resultado = notas[nombre]\n",
+        "except KeyError as e:\n",
+        "  print(type(e), e)\n",
+        "  print('Estudiante no matriculado(a) en el grupo')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "ceX2Lw1yf1Sc",
+        "outputId": "e9717cb5-18ed-408c-b46d-bfc477df559a"
+      },
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "¿Cuál es el nombre del estudiante?: Lula\n",
+            "<class 'KeyError'> 'Lula'\n",
+            "Estudiante no matriculado(a) en el grupo\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Agregando la cláusula Else\n",
+        "\n",
+        "```python\n",
+        "try:\n",
+        "  # código que será ejecutado. En caso de que surja una excepción, para inmediatamente\n",
+        "except:\n",
+        "  # Si surje una excepción en el try, ejecuta este código, si no, salta esta etapa\n",
+        "else:\n",
+        "  # Si no surjen excepciones, ejecuta esta parte del código\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "hKhKzgQoBHLb"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 13:**\n",
+        "\n",
+        "Creaste un código que lee un diccionario con las notas de los estudiantes y querías retornar la lista de notas de un estudiante.\n",
+        "\n",
+        "En caso de que el/la estudiante no esté matriculado(a) en la clase, debe aparecer el siguiente mensaje: \"Estudiante no matriculado(a) en el grupo\" y, si no surje la excepción, debemos exhibir la lista con las notas del(la) estudiante.\n",
+        "\n",
+        "Vamos a trabajar en este ejemplo con la excepción **Key Error** que interrumpirá el proceso de este trecho de código.\n",
+        "\n",
+        "**¿Vamos a probar este tratamiento?**\n"
+      ],
+      "metadata": {
+        "id": "USN3SA2tMjL0"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  nombre = input('¿Cuál es el nombre del estudiante?: ')\n",
+        "  resultado = notas[nombre]\n",
+        "except KeyError as e:\n",
+        "  print('Estudiante no matriculado(a) en el grupo')\n",
+        "else:\n",
+        "  print(resultado)"
+      ],
+      "metadata": {
+        "id": "Qr_4-D3UJxcE",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "1e071b63-2abc-40b9-c837-e8696a0d8873"
+      },
+      "execution_count": 13,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "¿Cuál es el nombre del estudiante?: Jorge\n",
+            "[5.5, 7.5, 9.0]\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "uy2xPGXoJzXS"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "### Añadiendo la cláusula finally\n",
+        "\n",
+        "```python\n",
+        "try:\n",
+        "  # código que será ejecutado. En caso de que surja una excepción, para inmediatamente\n",
+        "except:\n",
+        "  # Si surje una excepción en el try, ejecuta este código, si no, salta esta etapa\n",
+        "else:\n",
+        "  # Si no surjen excepciones, ejecuta esta parte del código\n",
+        "finally:\n",
+        "  # Ejecuta este trecho (con o sin excepción)\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "Dw_efTlbBhll"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situación 14:**\n",
+        "\n",
+        "Creaste un código que lee un diccionario con las notas de los estudiantes y querías retornar la lista de notas de un estudiante.\n",
+        "\n",
+        "En caso de que el/la estudiante no esté matriculado(a) en la clase, debe aparecer el siguiente mensaje: \"Estudiante no matriculado(a) en el grupo\" y, si no surje la excepción, debemos exhibir la lista con las notas del(la) estudiante. Un texto avisando que \"La consulta ha concluído.\" debe ser mostrado independientemente de si surgió o no alguna excepción.\n",
+        "\n",
+        "\n",
+        "Vamos a trabajar en este ejemplo con la excepción **Key Error** que interrumpirá el proceso de este trecho del código.\n",
+        "\n",
+        "**¿Vamos a probar este tratamiento?**"
+      ],
+      "metadata": {
+        "id": "jGtFVx5GdnsS"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  nombre = input('¿Cuál es el nombre del estudiante?: ')\n",
+        "  resultado = notas[nombre]\n",
+        "except KeyError as e:\n",
+        "  print('Estudiante no matriculado(a) en el grupo')\n",
+        "else:\n",
+        "  print(resultado)\n",
+        "finally:\n",
+        "  print('La consulta ha concluído.')"
+      ],
+      "metadata": {
+        "id": "PwdLYP_zJ04s",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "7df0f713-e270-488a-d5cc-d2020a0c76cc"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "¿Cuál es el nombre del estudiante?: Jorge\n",
+            "[5.5, 7.5, 9.0]\n",
+            "La consulta ha concluído.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "pv0BaQ95J1BA"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## 4.2 Raise\n",
+        "\n",
+        "Otra forma de trabajar con las excepciones en tu código, es generando tus propias excepciones para determinados comportamientos que deseas en tu código.\n",
+        "\n",
+        "Para ello, utilizamos la palabra clave `raise` junto al tipo de excepción que se desea mostrar y el mensaje que será exhibido.   "
+      ],
+      "metadata": {
+        "id": "HdjllLBpST_2"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "```python\n",
+        "raise NombreDelError(\"Mensaje deseado.\")\n",
+        "```"
+      ],
+      "metadata": {
+        "id": "_nIOnDQufv6Z"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "#### **Situação 15:**\n",
+        "\n",
+        "Creaste una función para calcular el promedio de un estudiante en una determinada materia pasando en una lista las notas de este estudiante.\n",
+        "\n",
+        "Pretendes tratar 2 situaciones:\n",
+        "\n",
+        "- Si la lista posee un valor no numérico el cálculo de promedio no será ejecutado y un mensaje de \"No fue posible calcular el promedio del(la) estudiante. Solo se admiten valores numéricos!\" será exhibido.\n",
+        "\n",
+        "- En caso que la lista tenga más de 4 notas, surgirá una excepción del tipo **ValueError** informando que \"La lista no puede poseer más de 4 notas.\"\n",
+        "\n",
+        "Un texto avisando que \"La consulta ha concluído.\" debe ser mostrado independientemente de si surgió o no alguna excepción.\n",
+        "\n",
+        "**¿Vamos a resolver este desafío?**"
+      ],
+      "metadata": {
+        "id": "xapeB2ivgB7R"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "def promedio(lista: list=[0]) -> float:\n",
+        "  ''' Función para calcular el promedio de notas en una lista\n",
+        "\n",
+        "  lista: list, default [0]\n",
+        "    Lista con las notas para calcular el promedio\n",
+        "  return = calculo: float\n",
+        "    Promedio calculado\n",
+        "  '''\n",
+        "\n",
+        "  calculo = sum(lista) / len(lista)\n",
+        "\n",
+        "  if len(lista) > 4:\n",
+        "    raise ValueError(\"La lista no puede poseer más de 4 notas.\")\n",
+        "\n",
+        "  return calculo"
+      ],
+      "metadata": {
+        "id": "kKeFuHUfhSfa"
+      },
+      "execution_count": 20,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas = [6,7,8,9,10]\n",
+        "resultado = promedio(notas)\n",
+        "resultado"
+      ],
+      "metadata": {
+        "id": "_ghW6hb9KBpU",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 297
+        },
+        "outputId": "8cd47e9c-3a16-485b-80f9-5120a37c3a05"
+      },
+      "execution_count": 21,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "ValueError",
+          "evalue": "La lista no puede poseer más de 4 notas.",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mValueError\u001b[0m                                Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-2338021814.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mnotas\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;36m6\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m7\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m8\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m9\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m10\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mresultado\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpromedio\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnotas\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0mresultado\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/tmp/ipython-input-1440746488.py\u001b[0m in \u001b[0;36mpromedio\u001b[0;34m(lista)\u001b[0m\n\u001b[1;32m     11\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m   \u001b[0;32mif\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlista\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m4\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 13\u001b[0;31m     \u001b[0;32mraise\u001b[0m \u001b[0mValueError\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0;34m\"La lista no puede poseer más de 4 notas.\"\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     14\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     15\u001b[0m   \u001b[0;32mreturn\u001b[0m \u001b[0mcalculo\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mValueError\u001b[0m: La lista no puede poseer más de 4 notas."
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "notas = [6,7,8,9,'10']\n",
+        "resultado = promedio(notas)\n",
+        "resultado"
+      ],
+      "metadata": {
+        "id": "X2To8kJdKGFk",
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 297
+        },
+        "outputId": "dfd645ab-06c8-42b7-eaee-4126d04273ef"
+      },
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "error",
+          "ename": "TypeError",
+          "evalue": "unsupported operand type(s) for +: 'int' and 'str'",
+          "traceback": [
+            "\u001b[0;31m---------------------------------------------------------------------------\u001b[0m",
+            "\u001b[0;31mTypeError\u001b[0m                                 Traceback (most recent call last)",
+            "\u001b[0;32m/tmp/ipython-input-1236556348.py\u001b[0m in \u001b[0;36m<cell line: 0>\u001b[0;34m()\u001b[0m\n\u001b[1;32m      1\u001b[0m \u001b[0mnotas\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0;34m[\u001b[0m\u001b[0;36m6\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m7\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m8\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;36m9\u001b[0m\u001b[0;34m,\u001b[0m\u001b[0;34m'10'\u001b[0m\u001b[0;34m]\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m----> 2\u001b[0;31m \u001b[0mresultado\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0mpromedio\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mnotas\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m      3\u001b[0m \u001b[0mresultado\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;32m/tmp/ipython-input-1440746488.py\u001b[0m in \u001b[0;36mpromedio\u001b[0;34m(lista)\u001b[0m\n\u001b[1;32m      8\u001b[0m   '''\n\u001b[1;32m      9\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0;32m---> 10\u001b[0;31m   \u001b[0mcalculo\u001b[0m \u001b[0;34m=\u001b[0m \u001b[0msum\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlista\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m/\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlista\u001b[0m\u001b[0;34m)\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n\u001b[0m\u001b[1;32m     11\u001b[0m \u001b[0;34m\u001b[0m\u001b[0m\n\u001b[1;32m     12\u001b[0m   \u001b[0;32mif\u001b[0m \u001b[0mlen\u001b[0m\u001b[0;34m(\u001b[0m\u001b[0mlista\u001b[0m\u001b[0;34m)\u001b[0m \u001b[0;34m>\u001b[0m \u001b[0;36m4\u001b[0m\u001b[0;34m:\u001b[0m\u001b[0;34m\u001b[0m\u001b[0;34m\u001b[0m\u001b[0m\n",
+            "\u001b[0;31mTypeError\u001b[0m: unsupported operand type(s) for +: 'int' and 'str'"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  notas = [6,7,8,9,10]\n",
+        "  resultado = promedio(notas)\n",
+        "except ValueError as e:\n",
+        "  print(e)\n",
+        "except TypeError:\n",
+        "  print('No fue posible calcular el promedio del(la) estudiante. Solo se admiten valores numéricos!')\n",
+        "else:\n",
+        "  print(resultado)\n",
+        "finally:\n",
+        "  print('La consulta ha concluído.')"
+      ],
+      "metadata": {
+        "id": "nrCsWqX6KGIA",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "b70ba9ad-2206-43b6-ed01-ef8e5bb69285"
+      },
+      "execution_count": 25,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "La lista no puede poseer más de 4 notas.\n",
+            "La consulta ha concluído.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "try:\n",
+        "  notas = [6,7,8,9,10]\n",
+        "  resultado = promedio(notas)\n",
+        "except ValueError as e:\n",
+        "  print(e)\n",
+        "except TypeError:\n",
+        "  print('No fue posible calcular el promedio del(la) estudiante. Solo se admiten valores numéricos!')\n",
+        "else:\n",
+        "  print(resultado)\n",
+        "finally:\n",
+        "  print('La consulta ha concluído.')"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "UCt3y7H-k4Y3",
+        "outputId": "f24b504b-be0d-4593-844d-ca6601f5e56e"
+      },
+      "execution_count": 27,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "La lista no puede poseer más de 4 notas.\n",
+            "La consulta ha concluído.\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "ZKvBBHcEk8XC"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
